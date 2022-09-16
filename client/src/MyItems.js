@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-const MyItems = ({ deleteById, currentUser }) => {
+const MyItems = ({ deleteById, currentUser, handleClick }) => {
   const [myItems, setMyItems] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const MyItems = ({ deleteById, currentUser }) => {
   }
   function _renderItems() {
     const items = myItems.map((item) => (
-      <ListingCard key={item.id} item={item} deleteById={deleteById} />
+      <ListingCard key={item.id} item={item} deleteById={deleteById} handleClick={handleClick} showDelete={currentUser.admin || false} />
     ));
     return items;
   }

@@ -1,7 +1,7 @@
 const LoginHeader = () => {
     return (
         <div id='login-header'>
-            <h1 id="maintitle">WeList</h1>
+            <h1 id="maintitle">KeebX</h1>
         </div>
     )
 }

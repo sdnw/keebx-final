@@ -6,9 +6,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create(user_params)   
+        user = User.create(user_params)  
+        user.update(admin: false) unless params["admin"].present?
+
         if user.valid?
             session[:user_id] = user.id
+            HelloMailer.welcome_email(user).deliver     
+
             render json: user, status: :created
         else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
@@ -32,7 +36,9 @@ class UsersController < ApplicationController
     def user_params
         params.permit(
             :name,
-            :password
+            :password,
+            :admin,
+            :email
         )
     end
 end

@@ -1,0 +1,17 @@
+<!-- inside app/views/hello_mailer/welcome_email.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      h1 {text-align: center;}
+      p {text-align: center;}
+    </style>
+  </head>
+  <body style="background-color:#D3D3D3;">
+    <h1 style="font-family:sans-serif">Hey <%= @user[:name] %>, thanks for purchasing <%= @item.name %>!</h1>
+    <center><img src=<%=@item.image || "https://c.tenor.com/0ygiqFaX-ssAAAAC/bongo-cat-typing.gif"%>></center>
+    <p style="font-family:sans-serif">Thanks for choosing us for your keyboard needs and have a great day!</p>
+  
+  </body>
+</html>

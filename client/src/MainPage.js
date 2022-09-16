@@ -37,6 +37,7 @@ const MainPage = ({
         deleteById={deleteById}
         handleClick={handleClick}
         searchInput={searchInput}
+        currentUser={currentUser}
       />
     </div>
   );

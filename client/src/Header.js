@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Header({ searchItems, searchInput, setShow, size, setCurrentUser }) {
+function Header({ searchItems, searchInput, setShow, size, setCurrentUser, currentUser }) {
   const logout = () => {
     fetch("/logout", {
       method: "DELETE",
@@ -13,22 +13,16 @@ function Header({ searchItems, searchInput, setShow, size, setCurrentUser }) {
       <nav>
         <div className="navbar">
           <NavLink exact className="button" to="/">
-            WeList
+            KeebX
           </NavLink>
           {/* <NavLink exact className="button" to="/listings">
             Shop
           </NavLink> */}
-          <NavLink exact className="button" to="/listings/new">
+          { currentUser.admin && <NavLink exact className="button" to="/listings/new">
             Sell
-          </NavLink>
+          </NavLink>}
           <NavLink exact className="button" to="/my_items">
-            My Listed Items
-          </NavLink>
-          <NavLink exact className="button" to="/cart">
-            Cart: { size }
-            <span>
-              <i class="fas-fa-cart-plus"></i>
-            </span>
+            My Purchased Items
           </NavLink>
           <NavLink exact className="button" onClick={logout} to="/">
             Logout

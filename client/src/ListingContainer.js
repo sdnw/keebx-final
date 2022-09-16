@@ -1,7 +1,7 @@
 import React from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({ listings, deleteById, handleClick, searchInput }) {
+function ListingsContainer({ listings, deleteById, handleClick, searchInput, currentUser }) {
   return (
     <main>
       <ul className="cards">
@@ -12,6 +12,7 @@ function ListingsContainer({ listings, deleteById, handleClick, searchInput }) {
             item={item}
             deleteById={deleteById}
             handleClick={handleClick}
+            showDelete={currentUser.admin || false}
           />
         ))}
       </ul>

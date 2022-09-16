@@ -1,83 +1,63 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-Seller.create(name: 'John Spencer', rating: 97)
-Seller.create(name: 'Whitney Sklaver', rating: 82)
-Seller.create(name: 'Jackson Howe', rating: 62)
-Seller.create(name: 'Benji Attison', rating: 99)
-Seller.create(name: 'Farrah Nezhad', rating: 87)
-Seller.create(name: 'Denson Grover', rating: 92)
-Seller.create(name: 'Fatima White', rating: 86)
+puts "removing old data..."
+User.destroy_all
+Item.destroy_all
+puts "old data deleted!"
 
+puts "creating users..."
+User.create(name: 'Steven', password: '123', email: 'me@keebx.com', admin: true)
+User.create(name: "Max", email: "max@gmail.com", password: "123")
+User.create(name: "Lorena", email: "lorena@gmail.com", password: "123")
+User.create(name: "Yoshi", email: "yoshi@gmail.com", password: "123")
+puts "users created!"
 
-User.create(name: 'Solomon Leonard', rating: 97)
-User.create(name: 'Scott Bauer', rating: 82)
-User.create(name: 'Jamya Decker', rating: 62)
-User.create(name: 'Andreas Mayer', rating: 99)
-User.create(name: 'Ibrahim Cannon', rating: 87)
-User.create(name: 'Alan Gibson', rating: 92)
-User.create(name: 'Malik Reeves', rating: 86)
+puts "creating items..."
+Item.create(
+    name: "Krytox GPL 205G0 0.35 oz",
+    price: "15.00",
+    description: "205G0 is a grease lubricant recommended for linear/tactile switches but with very light application.",
+    image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81dNBiMsvFL._SX522_.jpg",
+    quantity: 15
+)
 
 Item.create(
-    name: 'Technics SL-1200MK2 Turntable Pair',
-    price: 2250.00,
-    image:'https://i.ebayimg.com/images/g/zukAAOSwiupiz~Ll/s-l500.png',
-    description:'The quintessential vintage DJ turntables, used and in perfect working and cosmetic condition.',
-    user_id: 1,
-    seller_id: 3
+    name: "Krytox GPL 105",
+    price: "15.00",
+    description: "GPL 105 Lubricant is a high performance PTFE oil lubricant. This lube is recommended for springs and linear switches.",
+    image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81jMo35PYQL._SX522_.jpg",
+    quantity: 15
 )
+
 Item.create(
-    name: 'Pelican Kayak',
-    price: 250.00,
-    image:'https://i.ebayimg.com/images/g/mL4AAOSwYEJiwEOZ/s-l500.jpg',
-    description:'Excellent 10ft Pelican Bandit 100 NKT Kayak, electric blue color, lightweight yet heavy duty, been on three or four trips only, in great condition',
-    user_id: 2,
-    seller_id: 4
+    name: "DUROCK V2 PCB Mount Screw-in Stabilizers",
+    price: "13.00",
+    description: "These are Durock V2 PCB mounted (screw-in) stabilizers.  They come pre-clipped and feature an improved design to prevent wire popping.",
+    image: "https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/61lAVJhrDDL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+    quantity: 15
 )
+
 Item.create(
-    name: 'Antique Singer Sewing Machine',
-    price: 290.00,
-    image:'https://i.ebayimg.com/images/g/100AAOSw3itjAGn1/s-l500.jpg',
-    description:'Singer Model 66 Red Eye Hand Crank Sewing Machine. Late 1800s model in good working condition, sewing machine only, has no table.',
-    user_id: 3,
-    seller_id: 1
+    name: "KBD67 Lite R4 Mechanical Keyboard DIY Kit",
+    price: "110.00",
+    description: "The KBD67 Lite Mechanical Keyboard Kit is an entry level DIY kit fit for both newcomers and veterans alike. This kit features everything you would need in order to build a keyboard except for switches and keycaps.",
+    image: "https://cdn.shopify.com/s/files/1/0275/3649/0561/products/kbdfans-kbd67-lite-r4-mechanical-keyboard-diy-kit-348575.webp?v=1661210122",
+    quantity: 15
 )
+
 Item.create(
-    name: '1958 Gibson Les Paul Guitar',
-    price: 250000.00,
-    image:'https://images.reverb.com/image/upload/s--uWzA3jNM--/f_auto,t_large/v1642470242/iiiwonxrrmzqfjsdjujy.jpg',
-    description:'This 1958 Gibson Les Paul Standard Sunburst Serial number 8 5438 was made in the Kalamazoo, MI factory in 1958. Has had some minor work done. This is your chance to own a piece of history.',
-    user_id: 4,
-    seller_id: 2
+    name: "C³EQUALZ X TKC Tangerine Switches",
+    price: "50.00",
+    description: "The smoothest linear in the game, Tangerine switches have a linear POM stem, a 67g spring (Dark variant) or 62g spring (Light variant), and a UHMWPE housing.",
+    image: "https://cdn.shopify.com/s/files/1/1679/2319/products/ProdPhoto-3_1296x.jpg?v=1656007595",
+    quantity: 15
 )
+
 Item.create(
-    name: 'Herman Miller Eames Lounge Chair',
-    price: 1500.00,
-    image:'https://i.ebayimg.com/images/g/f1IAAOSwtx9i3YDo/s-l500.png',
-    description:'2006 Herman Miller Eames lounge chair, mid century modern style with ottoman in black leather and walnut wood. Some minor cracks in leather in the seat area',
-    user_id: 5,
-    seller_id: 5
+    name: "Cherry MX Brown Switches",
+    price: "30.00",
+    description: "The tactile bump can easily be felt on Cherry MX Brown switches, and the resistance is similar to your average keyboard. Peak force 55g, with 45g at the point of actuation.",
+    image: "https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/51VFwzkb16S.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+    quantity: 15
 )
-Item.create(
-    name: 'Tommy Bahama Beach Umbrella',
-    price: 40.00,
-    image:'https://i.ebayimg.com/images/g/71sAAOSwsfJiQ3N7/s-l500.jpg',
-    description:'Tommy Bahama stylish 8ft diameter blue beach umbrella with fiberglass ribs that you screw into the sand to keep sturdy. Works great!!',
-    user_id: 6,
-    seller_id: 7
-)
-Item.create(
-    name: 'Lost Hydra Surfboard',
-    price: 250.00,
-    image:'https://i.ebayimg.com/images/g/~a4AAOSwLX5jAmxw/s-l500.jpg',
-    description:'Lost Hydra Surfboard, like new, couple foot dents, no major damage.',
-    user_id: 7,
-    seller_id: 6
-)
-Item.create(
-    name: 'Apple Airpods 2nd Gen',
-    price: 50.00,
-    image:'https://i.ebayimg.com/images/g/WjsAAOSwDsJi3jck/s-l500.jpg',
-    description:'Apple AirPods 2nd generation bluetooth earbuds, earphones with headset & charging case. Has been tested for sound quality and is working perfectly.',
-    user_id: 1,
-    seller_id: 3
-)
+puts "items created!"

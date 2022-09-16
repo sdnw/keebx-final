@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 function Signup ({setCurrentUser}){
     const [formData,setFormData]= useState({
         name: "",
+        email: "",
         password: "",
     })
  
@@ -53,6 +54,15 @@ return(
                         name="name"
                         placeholder="username"
                         value={formData.user} 
+                        onChange={handleChange} 
+                    />
+                </label>
+                <label>Email
+                    <input 
+                        type="text" 
+                        name="email"
+                        placeholder="email@email.com"
+                        value={formData.email} 
                         onChange={handleChange} 
                     />
                 </label>

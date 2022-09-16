@@ -40,11 +40,31 @@ function App() {
       });
   };
 
-  const handleClick = (item) => {
-    if (cart.indexOf(item) !== -1) return;
-    console.log("adding item:", item);
-    setCart([...cart, item]);
+  const handleClick = (item, quantity) => {
+ 
+    const data = {
+      user_id: currentUser.id,
+      item_id: item.id,
+      quantity: quantity
+    }
+    fetch("/purchase", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+    .then((data) => {
+      console.log('update listing number')
+      updateListings(data)
+    });
+
   };
+
+  const updateListings = (item) => {
+    const newListings = listings.filter((listing) => listing.id !== item.id)
+
+    setListings([...newListings, item])
+  }
 
   const handleAddListing = (listing) => {
     setListings([...listings, listing])
@@ -72,7 +92,7 @@ function App() {
     <Router>
       <div className="">
         {currentUser && (
-          <Header setCurrentUser={setCurrentUser} size={cart.length} />
+          <Header currentUser={currentUser} setCurrentUser={setCurrentUser} size={cart.length} />
         )}
         <Switch>
           <Route exact path="/">
@@ -97,17 +117,8 @@ function App() {
           <Route exact path="/listings/new">
             <ListingsForm component={ListingsForm} handleAddListing={handleAddListing}/>
           </Route>
-          <Route exact path="/cart">
-            <Cart
-              cart={cart}
-              setCart={setCart}
-              handleChange={handleChange}
-              handleClick={handleClick}
-              deleteById={deleteById}
-            />
-          </Route>
           <Route exact path="/my_items">
-            <MyItems currentUser={currentUser} deleteById={deleteById} />
+            <MyItems currentUser={currentUser} deleteById={deleteById} handleClick={handleClick} />
           </Route>
           <Route exact path="/listings/:id">
             <ListingDetails />

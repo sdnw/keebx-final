@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
     
     def create 
         item = Item.new(item_params)
-        item.user_id = session[:user_id]
         if item.save 
             render json: item, status: :created
         else
@@ -38,9 +37,26 @@ class ItemsController < ApplicationController
         head :no_content
     end 
 
-    def my_items 
-        items = Item.where(user_id: session[:user_id])
+    def purchase 
+        item = Item.find(params[:item_id])
+        user = User.find(session[:user_id])
+        qp = params[:quantity].to_i
 
+        updated_item = item.purchase(qp, user)
+
+        if updated_item.save
+            HelloMailer.purchase(user, item).deliver     
+
+            render json: updated_item
+        else 
+            render json: { error: 'Bad' }, status: :unprocessable_entity
+        end
+    end
+
+    def my_items 
+        uirs = UserItemRelationship.where(user_id: session[:user_id])
+        items = uirs.map{|uir| uir.item}
+        
         if items
             render json: items
         else 
@@ -50,7 +66,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-        params.permit(:name, :price, :image, :description, :user_id, :seller_id)
+        params.permit(:name, :price, :image, :description, :quantity)
     end
         
 

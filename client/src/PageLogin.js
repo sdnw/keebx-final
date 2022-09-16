@@ -21,7 +21,7 @@ function PageLogin({ setCurrentUser }) {
                 </>
             ) : (
                 <>
-                <Signup setCurrentUser />
+                <Signup setCurrentUser={setCurrentUser} />
                 <p id="p2">
                     Already have an account?
                     <button id="b2" onClick={() => setShowLogin(true)}>
