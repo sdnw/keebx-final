@@ -11,13 +11,13 @@ function PageLogin({ setCurrentUser }) {
             <LoginHeader />
             {showLogin ? (
                 <>
-                <Login setCurrentUser={setCurrentUser} />
-                <p id="p1">
+                <Login setCurrentUser={setCurrentUser} setShowLogin={setShowLogin}/>
+                {/* <p id="p1">
                     Don't have an account?
                     <button
                         id="b1" onClick={() => setShowLogin(false)}>Sign Up
                     </button>
-                </p>
+                </p> */}
                 </>
             ) : (
                 <>
