@@ -15,9 +15,6 @@ function Header({ searchItems, searchInput, setShow, size, setCurrentUser, curre
           <NavLink exact className="button" to="/">
             KeebX
           </NavLink>
-          {/* <NavLink exact className="button" to="/listings">
-            Shop
-          </NavLink> */}
           { currentUser.admin && <NavLink exact className="button" to="/listings/new">
             Sell
           </NavLink>}
@@ -27,12 +24,6 @@ function Header({ searchItems, searchInput, setShow, size, setCurrentUser, curre
           <NavLink exact className="button" onClick={logout} to="/">
             Logout
           </NavLink>
-          {/* <div className="cart" onClick={() => setShow(false)}>
-          <span>
-            <i class="fas-fa-cart-plus"></i>
-          </span>
-          <span>{size}</span>
-          </div>*/}
         </div>
       </nav>
     </header>
