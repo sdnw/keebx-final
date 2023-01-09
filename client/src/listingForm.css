@@ -24,7 +24,7 @@
     outline: none;
 }
 
-.loginBtnViewForm {
+.addItemBtnViewForm {
     background-color: #3e87f2;
     border: none;
     min-width: 20%;
@@ -36,11 +36,11 @@
     cursor: pointer;
 }
 
-.loginBtnViewForm:hover {
+.addItemBtnViewForm:hover {
     box-shadow: 1px 1px 5px 1px #3e87f2;
 }
 
-.loginBtnForm {
+.addItemBtnForm {
     background-color: transparent;
     border: none;
     color: white;

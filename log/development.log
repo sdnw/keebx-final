@@ -18216,3 +18216,108 @@ Content-Transfer-Encoding: 7bit
 Completed 200 OK in 36ms (Views: 1.6ms | ActiveRecord: 7.4ms | Allocations: 9696)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-01-09 17:31:11 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 815)
+
+
+Started GET "/items" for 127.0.0.1 at 2023-01-09 17:31:11 -0500
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (1.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.93ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 1.3ms | Allocations: 1685)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-01-09 17:53:52 -0500
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (Allocations: 192)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-01-09 17:54:21 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Steven", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Steven"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 201 Created in 267ms (Views: 0.6ms | ActiveRecord: 8.5ms | Allocations: 4049)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-09 17:58:16 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.58ms)
+Completed 200 OK in 36ms (Views: 7.4ms | ActiveRecord: 3.8ms | Allocations: 819)
+
+
+Started GET "/items" for 127.0.0.1 at 2023-01-09 17:58:16 -0500
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (2.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.69ms)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 2.2ms | Allocations: 1749)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-09 18:02:18 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 15ms (Views: 1.1ms | ActiveRecord: 0.7ms | Allocations: 818)
+
+
+Started GET "/items" for 127.0.0.1 at 2023-01-09 18:02:19 -0500
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.97ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.1ms | Allocations: 1687)
+
+
+Started POST "/items" for 127.0.0.1 at 2023-01-09 18:02:59 -0500
+Processing by ItemsController#create as */*
+  Parameters: {"name"=>"hi", "price"=>"1", "image"=>"https://hiilite.com/wp-content/uploads/2017/09/Hiilite-Hii-Square-Kelowna-Web-Design-and-Marketing-colours-05.png", "description"=>"hi", "quantity"=>"1"}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/items_controller.rb:17:in `create'
+  [1m[36mItem Create (169.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "price", "image", "description", "quantity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "hi"], ["price", 1.0], ["image", "https://hiilite.com/wp-content/uploads/2017/09/Hiilite-Hii-Square-Kelowna-Web-Design-and-Marketing-colours-05.png"], ["description", "hi"], ["quantity", 1], ["created_at", "2023-01-09 23:02:59.620361"], ["updated_at", "2023-01-09 23:02:59.620361"]]
+  ↳ app/controllers/items_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/items_controller.rb:17:in `create'
+[active_model_serializers] Rendered ItemSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 201 Created in 201ms (Views: 1.1ms | ActiveRecord: 175.3ms | Allocations: 2193)
+
+
+Started GET "/me" for 127.0.0.1 at 2023-01-09 18:03:00 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 812)
+
+
+Started GET "/items" for 127.0.0.1 at 2023-01-09 18:03:00 -0500
+Processing by ItemsController#index as */*
+  [1m[36mItem Load (1.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/items_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.34ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 1.7ms | Allocations: 1827)
+
+
+Started DELETE "/items/25" for 127.0.0.1 at 2023-01-09 18:03:14 -0500
+Processing by ItemsController#destroy as */*
+  Parameters: {"id"=>"25"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/items_controller.rb:36:in `destroy'
+  [1m[36mItem Destroy (0.6ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/items_controller.rb:36:in `destroy'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/items_controller.rb:36:in `destroy'
+Completed 204 No Content in 21ms (ActiveRecord: 3.6ms | Allocations: 1897)
+
+
