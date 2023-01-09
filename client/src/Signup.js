@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import account from "./account.svg"
+import "./signup.css"
 
 function Signup ({setCurrentUser}){
     const [formData,setFormData]= useState({

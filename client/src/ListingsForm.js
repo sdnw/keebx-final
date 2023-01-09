@@ -106,10 +106,9 @@ function ListingsForm({ handleAddListing }) {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div className="loginBtnViewForm">
+          <div className="loginBtnForm">
             {/* <input type="submit" value="Submit"className="loginBtnForm" /> */}
             <button className="loginBtnForm">Add Item</button>
-
           </div>
         </div>
       </form>
