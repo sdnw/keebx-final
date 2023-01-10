@@ -37,13 +37,19 @@ header h1 {
 }
 
 .searchbar input {
-  width: 90%;
+  /* width: 90%;
   font-size: 1rem;
   height: 2rem;
   margin-right: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;
-  padding-left: 0.5rem;
+  padding-left: 0.5rem; */
+  position: relative;
+  height: 3em; /* Adjust the height as needed */
+  top: 1em; /* Shift down by 1em */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
 .searchbar button {
@@ -51,6 +57,10 @@ header h1 {
   background: white;
   border: 1px solid #ccc;
   border-radius: 3px;
+  /* line the button up with the search input */
+  position: relative;
+  top: 1em;
+  margin-bottom: 1em;
 }
 
 main {
@@ -64,11 +74,14 @@ main {
   background: none;
   padding: 0 0.25rem;
   cursor: pointer;
+  position: relative;
+  
 }
 
 .emoji-button.favorite {
   color: transparent;
   text-shadow: 0 0 0 gray;
+  position: relative;
 }
 
 .emoji-button.favorite.active,
